@@ -1,6 +1,6 @@
 # İnsan Kaynakları API Projesi
 
-<p style="float: right"><a href="/blob/master/README-EN.md">[EN]</a></p>
+<p style="float: right"><a align="right" href="/README-EN.md">[EN]</a></p>
 <br />
 
 <p style="font-size: 1.25rem; margin: 5px 0;">

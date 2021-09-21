@@ -1,6 +1,6 @@
 # Human Resources API Project
 
-<p style="float: right"><a href="/blob/master/README.md">[TR]</a></p>
+<p style="float: right"><a align="right" href="/README.md">[TR]</a></p>
 <br />
 
 <p style="font-size: 1.25rem; margin: 5px 0;">
