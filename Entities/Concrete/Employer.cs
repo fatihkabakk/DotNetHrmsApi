@@ -1,8 +1,9 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Concrete
 {
-    public class Employer : BaseUser, IEntity
+    public class Employer : User, IEntity
     {
         public string CompanyName { get; set; }
         public string WebSite { get; set; }

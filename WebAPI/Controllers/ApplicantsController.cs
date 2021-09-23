@@ -5,19 +5,19 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JobPositionsController : ControllerBase
+    public class ApplicantsController : ControllerBase
     {
-        IJobPositionService _jobPositionService;
+        IApplicantService _applicantService;
 
-        public JobPositionsController(IJobPositionService jobPositionService)
+        public ApplicantsController(IApplicantService applicantService)
         {
-            _jobPositionService = jobPositionService;
+            _applicantService = applicantService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _jobPositionService.GetAll();
+            var result = _applicantService.GetAll();
             if (result != null)
             {
                 return Ok(result);

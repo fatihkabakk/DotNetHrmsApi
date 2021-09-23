@@ -1,9 +1,10 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Concrete
 {
-    public class Applicant : BaseUser, IEntity
+    public class Applicant : User, IEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

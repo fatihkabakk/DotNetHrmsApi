@@ -1,38 +1,39 @@
 # Human Resources API Project
 
-<p style="float: right"><a align="right" href="/README.md">[TR]</a></p>
-<br />
+<p align="right"><a href="/README.md">[TR]</a></p>
 
-<p style="font-size: 1.25rem; margin: 5px 0;">
-    <b>Requirements;</b>
-</p>
-<b>Req 1: Applicants must be able to register to The System.</b>
+## _Requirements;_
 
-<p style="margin: 4px 0;">Accept Conditions:</p>
-<ol style="list-style: circle;">
-    <li>During registration, The User is asked for Name, Surname, T.C. No (Identity No.), Year Of Birth, E-mail, Password, Password Repetition.</li>
-    <li>All fields are obligatory. The User is informed.</li>
-    <li>Registration is done by doing Mernis Verification.</li>
-    <li>If verification is not valid, The User is informed.</li>
-    <li>If there are any prior registrations with The Same E-mail or T.C. No, The Registration does not happen. The User is informed.</li>
-    <li>Email verification is required forTheregistration to complete.</li>
-</ol>
+<hr>
 
-<b>Req 2: Employers must be able to register toThesystem.</b>
+**Req 1: Applicants must be able to register to The System.**
 
-<p style="margin: 4px 0;">Accept Conditions:</p>
+_Accept Conditions:_
 
-<ol style="list-style: circle;">
-    <li>During registration, The User is asked for Company name, WebSite, E-mail withThesame domain as The WebSite, Phone Number, Password, Password repeat information. The Purpose here is to prevent non-companies from registering toThesystem.</li>
-    <li>All fields are obligatory. The User is informed.</li>
-    <li>Company registrations are verified in 2 ways. Email verification is required forTheregistration to complete. Approval of HRMS staff (our :)) is required.</li>
-    <li>If there are any prior registrations withThesame e-mail,Theregistration does not happen. The User is informed.</li>
-</ol>
+- During registration, The User is asked for Name, Surname, T.C. No (Identity No.), Year Of Birth, E-mail, Password, Password Repetition.
+- All fields are obligatory. The User is informed.
+- Registration is done by doing Mernis Verification.
+- If verification is not valid, The User is informed.
+- If there are any prior registrations with The Same E-mail or T.C. No, The Registration does not happen. The User is informed.
+- E-mail verification is required for The Registration to complete.
 
-<b>Req 3: Job Positions should be able to be added toThesystem. Ex: Software Developer, Software Architect.</b>
+**Req 2: Employers must be able to register to The System.**
 
-<p style="margin: 4px 0;">Accept Conditions:</p>
+_Accept Conditions:_
 
-<ol style="list-style: circle;">
-    <li>These positions can not be repeated. The User is warned.</li>
-</ol>
+- During registration, The User is asked for Company name, WebSite, E-mail with The Same Domain as The WebSite, Phone Number, Password, Password repeat information. The Purpose here is to prevent non-companies from registering to The System.
+- All fields are obligatory. The User is informed.
+- Company registrations are verified in 2 ways. E-mail verification is required for The Registration to complete. Approval of HRMS staff (our :)) is required.
+- If there are any prior registrations with The Same E-mail, The Registration does not happen. The User is informed.
+
+**Req 3: Job Positions must be able to be added to The system. Ex: Software Developer, Software Architect.**
+
+_Accept Conditions:_
+
+- These positions can not be repeated. The User is warned.
+
+**Req 4: Employers must be able to be listed. (Just The Whole List)**
+
+**Req 5: Applicants must be able to be listed. (Just The Whole List)**
+
+**Req 6: Job Positions must be able to be listed. (Just The Whole List)**

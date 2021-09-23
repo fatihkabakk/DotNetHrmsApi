@@ -1,8 +1,12 @@
-﻿USE [master]
+USE [master]
 GO
-/****** Object:  Database [Hrms]    Script Date: 21.09.2021 13:22:03 ******/
+/****** Object:  Database [Hrms]    Script Date: 23.09.2021 05:52:39 ******/
 CREATE DATABASE [Hrms]
  CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Hrms', FILENAME = N'C:\Users\Fatih\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB\Hrms.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Hrms_log', FILENAME = N'C:\Users\Fatih\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB\Hrms.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 ALTER DATABASE [Hrms] SET COMPATIBILITY_LEVEL = 130
 GO
@@ -83,7 +87,7 @@ ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
 GO
 USE [Hrms]
 GO
-/****** Object:  Table [dbo].[Applicants]    Script Date: 21.09.2021 13:22:03 ******/
+/****** Object:  Table [dbo].[Applicants]    Script Date: 23.09.2021 05:52:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -100,7 +104,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Employers]    Script Date: 21.09.2021 13:22:03 ******/
+/****** Object:  Table [dbo].[Employers]    Script Date: 23.09.2021 05:52:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -117,7 +121,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobPositions]    Script Date: 21.09.2021 13:22:03 ******/
+/****** Object:  Table [dbo].[JobPositions]    Script Date: 23.09.2021 05:52:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -131,19 +135,19 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 21.09.2021 13:22:03 ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 23.09.2021 05:52:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Users](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] IDENTITY(1,1) NOT NULL,
 	[Email] [nvarchar](75) NOT NULL,
 	[Password] [nvarchar](75) NOT NULL,
 	[MailStatus] [bit] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC
+	[UserId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -152,10 +156,10 @@ GO
 ALTER TABLE [dbo].[Users] ADD  DEFAULT ((0)) FOR [MailStatus]
 GO
 ALTER TABLE [dbo].[Applicants]  WITH CHECK ADD FOREIGN KEY([UserId])
-REFERENCES [dbo].[Users] ([Id])
+REFERENCES [dbo].[Users] ([UserId])
 GO
 ALTER TABLE [dbo].[Employers]  WITH CHECK ADD FOREIGN KEY([UserId])
-REFERENCES [dbo].[Users] ([Id])
+REFERENCES [dbo].[Users] ([UserId])
 GO
 USE [master]
 GO
