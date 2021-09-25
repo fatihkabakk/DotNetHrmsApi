@@ -1,12 +1,8 @@
 USE [master]
 GO
-/****** Object:  Database [Hrms]    Script Date: 23.09.2021 05:52:39 ******/
+/****** Object:  Database [Hrms]    Script Date: 25.09.2021 18:11:16 ******/
 CREATE DATABASE [Hrms]
  CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'Hrms', FILENAME = N'C:\Users\Fatih\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB\Hrms.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'Hrms_log', FILENAME = N'C:\Users\Fatih\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB\Hrms.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 ALTER DATABASE [Hrms] SET COMPATIBILITY_LEVEL = 130
 GO
@@ -87,7 +83,7 @@ ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
 GO
 USE [Hrms]
 GO
-/****** Object:  Table [dbo].[Applicants]    Script Date: 23.09.2021 05:52:39 ******/
+/****** Object:  Table [dbo].[Applicants]    Script Date: 25.09.2021 18:11:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -104,7 +100,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Employers]    Script Date: 23.09.2021 05:52:39 ******/
+/****** Object:  Table [dbo].[Employers]    Script Date: 25.09.2021 18:11:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -121,7 +117,30 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobPositions]    Script Date: 23.09.2021 05:52:39 ******/
+/****** Object:  Table [dbo].[JobAdverts]    Script Date: 25.09.2021 18:11:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[JobAdverts](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[JobPositionId] [int] NOT NULL,
+	[EmployerId] [int] NOT NULL,
+	[Description] [nvarchar](100) NOT NULL,
+	[City] [nvarchar](75) NOT NULL,
+	[MinSalary] [int] NULL,
+	[MaxSalary] [int] NULL,
+	[Vacancies] [int] NOT NULL,
+	[LastApplyDate] [datetime] NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[Status] [bit] NOT NULL,
+ CONSTRAINT [PK_JobAdverts] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[JobPositions]    Script Date: 25.09.2021 18:11:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -135,7 +154,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 23.09.2021 05:52:39 ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 25.09.2021 18:11:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -153,6 +172,10 @@ PRIMARY KEY CLUSTERED
 GO
 ALTER TABLE [dbo].[Employers] ADD  DEFAULT ((0)) FOR [StaffApproval]
 GO
+ALTER TABLE [dbo].[JobAdverts] ADD  CONSTRAINT [DF_JobAdverts_CreatedDate]  DEFAULT (getdate()) FOR [CreatedDate]
+GO
+ALTER TABLE [dbo].[JobAdverts] ADD  DEFAULT ((1)) FOR [Status]
+GO
 ALTER TABLE [dbo].[Users] ADD  DEFAULT ((0)) FOR [MailStatus]
 GO
 ALTER TABLE [dbo].[Applicants]  WITH CHECK ADD FOREIGN KEY([UserId])
@@ -160,6 +183,16 @@ REFERENCES [dbo].[Users] ([UserId])
 GO
 ALTER TABLE [dbo].[Employers]  WITH CHECK ADD FOREIGN KEY([UserId])
 REFERENCES [dbo].[Users] ([UserId])
+GO
+ALTER TABLE [dbo].[JobAdverts]  WITH CHECK ADD  CONSTRAINT [FK_JobAdverts_Employers] FOREIGN KEY([EmployerId])
+REFERENCES [dbo].[Employers] ([UserId])
+GO
+ALTER TABLE [dbo].[JobAdverts] CHECK CONSTRAINT [FK_JobAdverts_Employers]
+GO
+ALTER TABLE [dbo].[JobAdverts]  WITH CHECK ADD  CONSTRAINT [FK_JobAdverts_JobPositions] FOREIGN KEY([JobPositionId])
+REFERENCES [dbo].[JobPositions] ([Id])
+GO
+ALTER TABLE [dbo].[JobAdverts] CHECK CONSTRAINT [FK_JobAdverts_JobPositions]
 GO
 USE [master]
 GO
