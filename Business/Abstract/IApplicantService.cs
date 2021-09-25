@@ -6,7 +6,7 @@ namespace Business.Abstract
     public interface IApplicantService
     {
         void Add(Applicant applicant);
-        Applicant Get(int id);
+        Applicant GetById(int id);
         List<Applicant> GetAll();
         void Update(Applicant applicant);
     }

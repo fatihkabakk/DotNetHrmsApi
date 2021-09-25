@@ -6,7 +6,7 @@ namespace Business.Abstract
     public interface IJobPositionService
     {
         void Add(JobPosition jobPosition);
-        JobPosition Get(int id);
+        JobPosition GetById(int id);
         List<JobPosition> GetAll();
         void Update(JobPosition jobPosition);
     }

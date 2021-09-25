@@ -16,7 +16,11 @@ namespace DataAccess.Concrete.EntityFramework
             modelBuilder.Entity<Employer>().ToTable("Employers");
         }
 
-        public DbSet<JobPosition> JobPositions { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Employer> Employers { get; set; }
+        public DbSet<JobAdvert> JobAdverts { get; set; }
+        public DbSet<Applicant> Applicants { get; set; }
+        public DbSet<JobPosition> JobPositions { get; set; }
+
     }
 }

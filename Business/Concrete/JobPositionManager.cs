@@ -19,7 +19,7 @@ namespace Business.Concrete
             _jobPositionDal.Add(jobPosition);
         }
 
-        public JobPosition Get(int id)
+        public JobPosition GetById(int id)
         {
             return _jobPositionDal.Get(jp => jp.Id == id);
         }

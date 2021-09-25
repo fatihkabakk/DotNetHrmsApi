@@ -18,13 +18,13 @@ namespace WebAPI.Controllers
         public IActionResult Add(Employer employer)
         {
             _employerService.Add(employer);
-            return CreatedAtAction(nameof(Get), new { UserId = employer.UserId }, employer);
+            return CreatedAtAction(nameof(GetById), employer);
         }
 
-        [HttpGet("get")]
-        public IActionResult Get(int id)
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
         {
-            var result = _employerService.Get(id);
+            var result = _employerService.GetById(id);
             if (result != null)
             {
                 return Ok(result);

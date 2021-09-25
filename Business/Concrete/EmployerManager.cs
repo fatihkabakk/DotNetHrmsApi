@@ -19,7 +19,7 @@ namespace Business.Concrete
             _employerDal.Add(employer);
         }
 
-        public Employer Get(int id)
+        public Employer GetById(int id)
         {
             return _employerDal.Get(e => e.UserId == id);
         }

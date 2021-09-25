@@ -37,3 +37,31 @@ _Accept Conditions:_
 **Req 5: Applicants must be able to be listed. (Just The Whole List)**
 
 **Req 6: Job Positions must be able to be listed. (Just The Whole List)**
+
+**Req 7: Employers must be able to add job advertisements to The System.**
+
+_In Job Advertisement Form;_
+
+- Job position must be able to be choosen from dropdown box. (Ex: Java Developer) (Obligatory)
+- Description must be able to be (Ex: For developers who are proficient in JAVA and C# languages...) (Obligatory)
+- City information must be able to be choosen from dropdown box. (Obligatory)
+- For the salary range, min-max entry must be possible.(Optional)
+- Vacancy count must be able to be added. (Obligatory)
+- Application Deadline must be able to be added.
+
+**Req 8: All The Active Job Advertisements in The System must be able to be listed.**
+
+- The List must be in table form.
+- The Job Position Name, The Vacany Count, Publishment Date and The Application Deadline informations must be present on The List.
+
+**Req 9: All The Active Job Advertisements in The System must be able to be listed by date.**
+
+- The List must be in table form.
+- The Company Name, The Job Position Name, The Vacany Count, Publishment Date and The Application Deadline informations must be present on The List.
+
+**Req 10: All The Active Job Advertisements of a Company in The System must be able to be listed.**
+
+- The List must be in table form.
+- The Company Name, The Job Position Name, The Vacany Count, Publishment Date and The Application Deadline informations must be present on The List.
+
+**Req 11: Employers must be able to disable Job Advertisements. (Passive Advertisement)**

@@ -19,7 +19,7 @@ namespace Business.Concrete
             _applicantDal.Add(applicant);
         }
 
-        public Applicant Get(int id)
+        public Applicant GetById(int id)
         {
             return _applicantDal.Get(a => a.UserId == id);
         }

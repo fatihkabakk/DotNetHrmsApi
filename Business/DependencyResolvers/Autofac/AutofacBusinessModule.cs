@@ -22,6 +22,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EmployerManager>().As<IEmployerService>();
             builder.RegisterType<EfEmployerDal>().As<IEmployerDal>();
 
+            builder.RegisterType<JobAdvertManager>().As<IJobAdvertService>();
+            builder.RegisterType<EfJobAdvertDal>().As<IJobAdvertDal>();
+
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()

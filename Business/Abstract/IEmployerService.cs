@@ -6,7 +6,7 @@ namespace Business.Abstract
     public interface IEmployerService
     {
         void Add(Employer employer);
-        Employer Get(int id);
+        Employer GetById(int id);
         List<Employer> GetAll();
         void Update(Employer employer);
     }
